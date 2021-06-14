@@ -23,7 +23,11 @@ RSpec.describe Enigma do
 
   describe 'Object Methods' do 
     it 'can encrypt with date and key' do 
-      expect(@enigma.encrypt("Hello World", "02231", "200421")).to eq("oflqvawtymd")
+      expect(@enigma.encrypt("Hello World", "02231", "200421")).to eq({
+                                                                        encryption: "oflqvawtymd",
+                                                                        key: "08304",
+                                                                        date: "291018"
+                                                                      })
     end 
 
     it 'can decrypt with date and key' do 
