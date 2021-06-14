@@ -13,8 +13,7 @@ class Enigma
       offset = give_offset(shift, index)
       encrypt << give_offset_letter(character, offset)
     end 
-    encrypt
-    require "pry"; binding.pry
+    encrypt.join
   end 
 
   def give_offset_letter(character, offset)
