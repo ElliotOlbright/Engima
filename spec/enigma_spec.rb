@@ -19,5 +19,13 @@ RSpec.describe Enigma do
       expect(@enigma.alphabet.length).to eq(27)
     end 
   end 
+
+  describe 'Object Methods' do 
+    it 'can encrypt' do 
+      @enigma.encrypt("Hello World", "02231", "200421")
+    end 
+    it 'can find shift' do 
+    end 
+  end 
 end 
   
