@@ -21,9 +21,9 @@ class Enigma
     shift = Shift.new(key, date)
     decrypted = message.downcase.chars.map.with_index do |character, index|
       offset = give_offset(shift, index)
-      encrypt << give_offset_letter(character, -offset)
+      give_offset_letter(character, -offset)
     end 
-    decrypted
+    { dencryption: decrypted.join(""), key: shift.key.key_number, date: shift.offset.date }
   end 
 
   def give_offset_letter(character, offset)

@@ -30,11 +30,15 @@ RSpec.describe Enigma do
                                                                       })
     end 
 
-    xit 'can decrypt with date and key' do 
-      expect(@enigma.decrypt("oflqvawtymd", "02231", "200421")).to eq("hello world")
+    it 'can decrypt with date and key' do 
+      expect(@enigma.decrypt("oflqvawtymd", "02231", "200421")).to eq({
+                                                                        dencryption: "hello world",
+                                                                        key: "02231",
+                                                                        date: "200421"
+                                                                      })
     end 
 
-    xit 'can find offset shift' do
+    it 'can find offset shift' do
       shift = Shift.new("02231", "200421")
       @enigma.encrypt("Hello World", "02231", "200421")
     end 
