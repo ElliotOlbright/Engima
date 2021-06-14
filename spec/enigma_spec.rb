@@ -23,11 +23,11 @@ RSpec.describe Enigma do
 
   describe 'Object Methods' do 
     it 'can encrypt with date and key' do 
-      expect(@enigma.encrypt("Hello World", "02231", "200421")).to eq("HflqvaWtymd")
+      expect(@enigma.encrypt("Hello World", "02231", "200421")).to eq("oflqvawtymd")
     end 
 
     it 'can decrypt with date and key' do 
-      expect(@enigma.decrypt("HflqvaWtymd", "02231", "200421")).to eq("Hello World")
+      expect(@enigma.decrypt("oflqvawtymd", "02231", "200421")).to eq("hello world")
     end 
 
     it 'can find offset shift' do

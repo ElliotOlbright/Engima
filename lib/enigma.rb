@@ -6,20 +6,21 @@ class Enigma
     @alphabet = ("a".."z").to_a << " "
   end 
 
-  def encrypt(message, key, date)
+  def encrypt(message, key = nil, date = nil)
     shift = Shift.new(key, date)
     encrypt = []
-    message.chars.each.with_index do |character, index|
+    message.downcase.chars.each.with_index do |character, index|
       offset = give_offset(shift, index)
       encrypt << give_offset_letter(character, offset)
     end 
     encrypt.join
+
   end 
 
   def decrypt(message, key, date)
     shift = Shift.new(key, date)
     encrypt = []
-    message.chars.each.with_index do |character, index|
+    message.downcase.chars.each.with_index do |character, index|
       offset = give_offset(shift, index)
       encrypt << give_offset_letter(character, -offset)
     end 
