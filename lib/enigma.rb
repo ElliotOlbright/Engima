@@ -8,23 +8,22 @@ class Enigma
 
   def encrypt(message, key = nil, date = nil)
     shift = Shift.new(key, date)
-    encrypt = []
-    message.downcase.chars.each.with_index do |character, index|
+    encrypted = message.downcase.chars.map.with_index do |character, index|
       offset = give_offset(shift, index)
-      encrypt << give_offset_letter(character, offset)
+      give_offset_letter(character, offset)
     end 
-    encrypt.join
+    { encryption: encrypted.join(""), key: shift.key.key_number, date: shift.offset.date }
+  
 
   end 
 
   def decrypt(message, key, date)
     shift = Shift.new(key, date)
-    encrypt = []
-    message.downcase.chars.each.with_index do |character, index|
+    decrypted = message.downcase.chars.map.with_index do |character, index|
       offset = give_offset(shift, index)
       encrypt << give_offset_letter(character, -offset)
     end 
-    encrypt.join
+    decrypted
   end 
 
   def give_offset_letter(character, offset)
