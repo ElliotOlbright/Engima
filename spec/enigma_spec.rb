@@ -8,6 +8,7 @@ SimpleCov.start
 RSpec.describe Enigma do
   before :each do 
     @enigma = Enigma.new
+    @enigma.encrypt("Hello World", "02231", "200421")
   end
 
   describe 'Object Creation' do 
@@ -21,11 +22,14 @@ RSpec.describe Enigma do
   end 
 
   describe 'Object Methods' do 
-    it 'can encrypt' do 
+    it 'can encrypt with date and key' do 
+      expect(@enigma.encrypt("Hello World", "02231", "200421")).to eq(["H", "f", "l", "q", "v", "a", "W", "t", "y", "m", "d"])
+    end 
+
+    it 'can find offset shift' do
+      shift = Shift.new("02231", "200421")
       @enigma.encrypt("Hello World", "02231", "200421")
     end 
-    it 'can find shift' do 
-    end 
   end 
-end 
+end
   
