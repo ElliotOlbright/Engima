@@ -50,10 +50,10 @@ RSpec.describe Enigma do
     it 'can find offset letter' do
       shift = Shift.new("02231", "200421")
       @enigma.encrypt("Hello World", "02231", "200421")
-      expect(@enigma.give_offset_letter(shift, 0)).to eq(7)
-      expect(@enigma.give_offset_letter(shift, 1)).to eq(28)
-      expect(@enigma.give_offset_letter(shift, 2)).to eq(27)
-      expect(@enigma.give_offset_letter(shift, 3)).to eq(32)
+      expect(@enigma.give_offset_letter("a", 7)).to eq("h")
+      expect(@enigma.give_offset_letter("a", 28)).to eq("b")
+      expect(@enigma.give_offset_letter("a", 27)).to eq("a")
+      expect(@enigma.give_offset_letter("a", 32)).to eq("f")
     end 
   end 
 end
