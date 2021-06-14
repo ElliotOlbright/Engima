@@ -16,6 +16,16 @@ class Enigma
     encrypt.join
   end 
 
+  def decrypt(message, key, date)
+    shift = Shift.new(key, date)
+    encrypt = []
+    message.chars.each.with_index do |character, index|
+      offset = give_offset(shift, index)
+      encrypt << give_offset_letter(character, -offset)
+    end 
+    encrypt.join
+  end 
+
   def give_offset_letter(character, offset)
     if @alphabet.include?(character)
       offset_index = @alphabet.index(character) + offset
